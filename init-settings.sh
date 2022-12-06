@@ -14,4 +14,6 @@ sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
 uci set fstab.@global[0].check_fs=1
 uci commit fstab
 
+echo "112233445566" >> /root/XX
+
 exit 0
