@@ -11,7 +11,7 @@
 #
 
 # 修改默认IP
-sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/172.16.252.254/g' package/base-files/files/bin/config_generate
 
 # 补充汉化       
 cp -f ./feeds/springwrt/files/udpxy.lua ./feeds/luci/applications/luci-app-udpxy/luasrc/model/cbi
@@ -23,10 +23,10 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon-18.06/g' feeds/luci/collections/
 sed -i 's/luci-theme-bootstrap/luci-theme-argon-18.06/g' feeds/luci/collections/luci-nginx/Makefile
 
 # 加入作者信息
-sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='SpringWRT-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings
+sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWRT-$(date +%Y%m%d)'/g" package/lean/default-settings/files/zzz-default-settings
 
 # 更改主机名
-sed -i "s/hostname='.*'/hostname='SpringWRT'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='.*'/hostname='OpenWRT'/g" package/base-files/files/bin/config_generate
 
 # 调整接口菜单
 sed -i '/option Interface/d'  package/network/services/dropbear/files/dropbear.config
