@@ -26,6 +26,11 @@ if [ ${ROOTFS_DISK} ] ; then
   mount -o remount rw /
 fi
 
+if [ -b "/dev/sdb1" ]; then
+  mkdir -p /data
+  mount /dev/sdb1 /data
+fi
+
 if [ -f "/data/start.sh" ]; then
   /bin/bash /data/start.sh
 fi
