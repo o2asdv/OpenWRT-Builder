@@ -14,7 +14,11 @@ sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
 uci set fstab.@global[0].check_fs=1
 uci commit fstab
 
-# Config network
+# Disable dns rebind protection
+uci set dhcp.@dnsmasq[0].rebind_protection=0
+uci commit dhcp
+
+# Set init network config
 cat <<'EOF'> /etc/config/network
 config interface 'loopback'
         option ifname 'lo'
