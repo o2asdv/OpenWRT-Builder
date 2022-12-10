@@ -64,6 +64,7 @@ fi
 
 if [ -b "/dev/sdb1" ]; then
   mkdir -p /data
+  umount /dev/sdb1
   mount /dev/sdb1 /data
 fi
 
