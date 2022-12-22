@@ -50,6 +50,14 @@ config interface 'vpn0'
         option proto 'none'
 EOF
 
+# Set backup dirs
+cat <<'EOF'> /etc/sysupgrade.conf
+## This file contains files and directories that should be preserved during an upgrade.
+
+/data/
+/etc/openvpn/
+EOF
+
 # Add "/etc/rc.local" script
 cat <<'EOF'> /etc/rc.local
 #!/bin/bash
