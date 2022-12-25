@@ -83,4 +83,28 @@ fi
 exit 0
 EOF
 
+# Set dhcp config
+cat <<'EOF'> /etc/config/dhcp
+
+config domain
+        option name '66v.eu'
+        option ip '172.16.252.10'
+        option comments 'Home Center'
+
+config domain
+        option name 'aircat.phicomm.com'
+        option ip '172.16.252.10'
+        option comments 'Phicomm M1'
+
+config domain
+        option name 'phiclouds.phicomm.com'
+        option ip '172.16.252.10'
+        option comments 'Phicomm M1'
+
+config domain
+        option name 'phicomm.com'
+        option ip '172.16.252.10'
+        option comments 'Phicomm'
+EOF
+
 exit 0
