@@ -45,7 +45,7 @@ config interface 'wan'
         option proto 'dhcp'
         option ifname 'eth4'
 
-config interface 'vpn0'
+config interface 'vpn'
         option ifname 'tun0'
         option proto 'none'
 EOF
