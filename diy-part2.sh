@@ -11,7 +11,7 @@
 #
 
 # 修改默认IP
-sed -i 's/192.168.1.1/172.16.252.254/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/172.16.252.1/g' package/base-files/files/bin/config_generate
 
 # 补充汉化       
 cp -f ./feeds/springwrt/files/udpxy.lua ./feeds/luci/applications/luci-app-udpxy/luasrc/model/cbi
@@ -27,6 +27,10 @@ sed -i "s/DISTRIB_DESCRIPTION='*.*'/DISTRIB_DESCRIPTION='OpenWRT-$(date +%Y%m%d)
 
 # 更改主机名
 sed -i "s/hostname='.*'/hostname='OpenWRT'/g" package/base-files/files/bin/config_generate
+
+# 更改 Zerotier 菜单位置
+sed -i "s/vpn/services/g" package/feeds/luci/luci-app-zerotier/luasrc/controller/zerotier.lua
+sed -i "s/vpn/services/g" package/feeds/luci/luci-app-zerotier/luasrc/view/zerotier/zerotier_status.htm
 
 # 调整接口菜单
 sed -i '/option Interface/d'  package/network/services/dropbear/files/dropbear.config
