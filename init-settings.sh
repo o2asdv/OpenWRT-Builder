@@ -16,6 +16,20 @@ uci commit fstab
 
 # Disable dns rebind protection
 uci set dhcp.@dnsmasq[0].rebind_protection=0
+
+# Set dhcp config
+uci set dhcp.@domain[-1].nname='phicomm.com'
+uci set dhcp.@domain[-1].nip='172.16.252.10'
+uci set dhcp.@domain[-1].ncomments='Phicomm'
+
+uci set dhcp.@domain[-1].nname='aircat.phicomm.com'
+uci set dhcp.@domain[-1].nip='172.16.252.10'
+uci set dhcp.@domain[-1].ncomments='Phicomm M1'
+
+uci set dhcp.@domain[-1].nname='phiclouds.phicomm.com'
+uci set dhcp.@domain[-1].nip='172.16.252.10'
+uci set dhcp.@domain[-1].ncomments='Phicomm M1'
+
 uci commit dhcp
 
 # Set init network config
@@ -81,30 +95,6 @@ if [ -f "/data/start.sh" ]; then
 fi
 
 exit 0
-EOF
-
-# Set dhcp config
-cat <<'EOF'> /etc/config/dhcp
-
-config domain
-        option name '66v.eu'
-        option ip '172.16.252.10'
-        option comments 'Home Center'
-
-config domain
-        option name 'aircat.phicomm.com'
-        option ip '172.16.252.10'
-        option comments 'Phicomm M1'
-
-config domain
-        option name 'phiclouds.phicomm.com'
-        option ip '172.16.252.10'
-        option comments 'Phicomm M1'
-
-config domain
-        option name 'phicomm.com'
-        option ip '172.16.252.10'
-        option comments 'Phicomm'
 EOF
 
 exit 0
